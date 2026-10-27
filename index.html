@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kanban Task Board</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="header">
+    <div>
+      <p class="eyebrow">PLAN • ORGANIZE • COMPLETE</p>
+      <h1>My Kanban Board</h1>
+      <p class="subtitle">Organize your work, one task at a time.</p>
+    </div>
+    <button id="addTaskBtn" class="add-btn">+ Add Task</button>
+  </header>
+
+  <main class="board">
+    <section class="column todo" data-status="todo">
+      <div class="column-heading">
+        <h2>To-Do</h2>
+        <span class="count">0</span>
+      </div>
+      <div class="task-list" id="todo"></div>
+    </section>
+
+    <section class="column doing" data-status="doing">
+      <div class="column-heading">
+        <h2>Doing</h2>
+        <span class="count">0</span>
+      </div>
+      <div class="task-list" id="doing"></div>
+    </section>
+
+    <section class="column done" data-status="done">
+      <div class="column-heading">
+        <h2>Done</h2>
+        <span class="count">0</span>
+      </div>
+      <div class="task-list" id="done"></div>
+    </section>
+  </main>
+
+  <dialog id="taskDialog">
+    <form id="taskForm">
+      <h2>Add a new task</h2>
+
+      <label for="taskTitle">Task title</label>
+      <input id="taskTitle" type="text"
+             placeholder="e.g. Create homepage" required
+             maxlength="100">
+
+      <label for="taskDescription">Description (optional)</label>
+      <textarea id="taskDescription"
+                placeholder="What needs to be done?"
+                maxlength="300"></textarea>
+
+      <label for="taskStatus">Column</label>
+      <select id="taskStatus">
+        <option value="todo">To-Do</option>
+        <option value="doing">Doing</option>
+        <option value="done">Done</option>
+      </select>
+
+      <div class="dialog-actions">
+        <button type="button" id="cancelBtn" class="cancel-btn">
+          Cancel
+        </button>
+        <button type="submit" class="add-btn">Save Task</button>
+      </div>
+    </form>
+  </dialog>
+
+  <footer>Changes are saved automatically in this browser.</footer>
+</body>
+</html>
